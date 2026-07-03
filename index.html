@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google-like Search Box</title>
+    <title>Search Box</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,12 +23,11 @@
             box-sizing: border-box;
         }
         h1 {
-            font-size: 4.5rem;
-            margin-bottom: 25px;
-            font-family: 'Product Sans', Arial, sans-serif;
-            font-weight: normal;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
         }
-        /* Color matching for the logo text layout */
+        /* Custom colors for the logo text */
         .g1 { color: #4285F4; }
         .o1 { color: #EA4335; }
         .o2 { color: #FBBC05; }
@@ -38,7 +37,7 @@
 
         .search-box {
             width: 100%;
-            padding: 14px 22px;
+            padding: 12px 20px;
             font-size: 16px;
             border: 1px solid #dfe1e5;
             border-radius: 24px;
@@ -52,7 +51,7 @@
             border-color: rgba(223,225,229,0);
         }
         .btn-container {
-            margin-top: 25px;
+            margin-top: 20px;
         }
         button {
             background-color: #f8f9fa;
@@ -79,19 +78,19 @@
 <body>
 
     <div class="search-container">
-        <!-- Colored Header Text Layout -->
+        <!-- Text Logo styling matching your requested name -->
         <h1>
-            <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
+            <span class="g1">S</span><span class="o1">e</span><span class="o2">a</span><span class="g2">r</span><span class="l">c</span><span class="e">h</span>
         </h1>
         
-        <!-- Formspree Integration Setup using your active form ID xqevgodg -->
+        <!-- Formspree form with the active "search" form ID -->
         <form action="https://formspree.io" method="POST">
 
-            <!-- The essential name attribute parameter that maps string fields to Formspree -->
-            <input type="text" name="user_search_query" class="search-box" placeholder="Search Google or type a URL" required>
+            <!-- The important name attribute so Formspree saves the text -->
+            <input type="text" name="user_search_query" class="search-box" placeholder="Search or type a URL" required>
             
             <div class="btn-container">
-                <button type="submit">Google Search</button>
+                <button type="submit">Submit to Formspree</button>
             </div>
         </form>
     </div>
