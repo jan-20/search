@@ -15,6 +15,7 @@
             margin: 0;
             background-color: #ffffff;
         }
+
         .search-container {
             text-align: center;
             width: 100%;
@@ -22,12 +23,12 @@
             padding: 20px;
             box-sizing: border-box;
         }
+
         h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            font-family: Arial, sans-serif;
         }
-        /* Custom colors for the logo text */
+
         .g1 { color: #4285F4; }
         .o1 { color: #EA4335; }
         .o2 { color: #FBBC05; }
@@ -42,17 +43,18 @@
             border: 1px solid #dfe1e5;
             border-radius: 24px;
             outline: none;
-            box-shadow: none;
-            transition: box-shadow 0.2s;
             box-sizing: border-box;
         }
+
         .search-box:focus {
             box-shadow: 0 1px 6px rgba(32,33,36,0.28);
             border-color: rgba(223,225,229,0);
         }
+
         .btn-container {
             margin-top: 20px;
         }
+
         button {
             background-color: #f8f9fa;
             border: 1px solid #f8f9fa;
@@ -65,11 +67,10 @@
             height: 36px;
             min-width: 54px;
             cursor: pointer;
-            user-select: none;
         }
+
         button:hover {
             box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-            background-color: #f8f9fa;
             border: 1px solid #dadce0;
             color: #202124;
         }
@@ -78,21 +79,31 @@
 <body>
 
     <div class="search-container">
-        <!-- Text Logo styling matching your requested name -->
+
         <h1>
             <span class="g1">S</span><span class="o1">e</span><span class="o2">a</span><span class="g2">r</span><span class="l">c</span><span class="e">h</span>
         </h1>
-        
-        <!-- Formspree form with the active "search" form ID -->
-        <form action="https://formspree.io" method="POST">
 
-            <!-- The important name attribute so Formspree saves the text -->
-            <input type="text" name="user_search_query" class="search-box" placeholder="Search or type a URL" required>
-            
+        <form action="https://forminit.com/f/r7j3vo54ewr" method="POST">
+
+            <!-- Required Forminit sender field -->
+            <input type="hidden" name="fi-sender-fullName" value="Website Visitor">
+
+            <!-- Search field -->
+            <input
+                type="text"
+                name="fi-text-search"
+                class="search-box"
+                placeholder="Search or type a URL"
+                required
+            >
+
             <div class="btn-container">
-                <button type="submit">Submit to Formspree</button>
+                <button type="submit">Search</button>
             </div>
+
         </form>
+
     </div>
 
 </body>
