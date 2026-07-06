@@ -1,110 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Box</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Box</title>
 
-        .search-container {
-            text-align: center;
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: #fff;
+}
 
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
+.search-box {
+    width: 90%;
+    max-width: 500px;
+    padding: 12px 18px;
+    font-size: 16px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    outline: none;
+}
 
-        .g1 { color: #4285F4; }
-        .o1 { color: #EA4335; }
-        .o2 { color: #FBBC05; }
-        .g2 { color: #4285F4; }
-        .l  { color: #34A853; }
-        .e  { color: #EA4335; }
-
-        .search-box {
-            width: 100%;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 1px solid #dfe1e5;
-            border-radius: 24px;
-            outline: none;
-            box-sizing: border-box;
-        }
-
-        .search-box:focus {
-            box-shadow: 0 1px 6px rgba(32,33,36,0.28);
-            border-color: rgba(223,225,229,0);
-        }
-
-        .btn-container {
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #f8f9fa;
-            border: 1px solid #f8f9fa;
-            border-radius: 4px;
-            color: #3c4043;
-            font-size: 14px;
-            margin: 11px 4px;
-            padding: 0 16px;
-            line-height: 27px;
-            height: 36px;
-            min-width: 54px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-            border: 1px solid #dadce0;
-            color: #202124;
-        }
-    </style>
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="search-container">
+<h1>Search</h1>
 
-        <h1>
-            <span class="g1">S</span><span class="o1">e</span><span class="o2">a</span><span class="g2">r</span><span class="l">c</span><span class="e">h</span>
-        </h1>
+<form id="search-form">
 
-        <form action="https://forminit.com/f/r7j3vo54ewr" method="POST">
+    <!-- Forminit field -->
+    <input 
+        type="text"
+        id="search"
+        name="fi-text-search"
+        class="search-box"
+        placeholder="Search here..."
+        required
+    >
 
-            <!-- Required Forminit sender field -->
-            <input type="hidden" name="fi-sender-fullName" value="Website Visitor">
+    <br>
 
-            <!-- Search field -->
-            <input
-                type="text"
-                name="fi-text-search"
-                class="search-box"
-                placeholder="Search or type a URL"
-                required
-            >
+    <button type="submit">Search</button>
+</form>
 
-            <div class="btn-container">
-                <button type="submit">Search</button>
-            </div>
+<p id="status"></p>
 
-        </form>
+<!-- Forminit SDK -->
+<script src="https://forminit.com/sdk/v1/forminit.js"></script>
 
-    </div>
+<script>
+const forminit = new Forminit();
+const FORM_ID = "r7j3vo54ewr";
+
+const form = document.getElementById("search-form");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    status.textContent = "Sending...";
+
+    const formData = new FormData(form);
+
+    const { data, error } = await forminit.submit(FORM_ID, formData);
+
+    if (error) {
+        status.textContent = error.message;
+        return;
+    }
+
+    status.textContent = "Submitted successfully!";
+    form.reset();
+});
+</script>
 
 </body>
 </html>
